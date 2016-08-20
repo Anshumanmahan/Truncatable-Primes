@@ -1,4 +1,5 @@
-for i in range(1,10000):
+sum = 0
+for i in range(10,1000000):
         flag = 0
         temp = 0
         temp1 = 0
@@ -7,20 +8,23 @@ for i in range(1,10000):
         z1 = 0
         x = 0
         y = 0
+        y1 = 0
         sav = i
         count = i
         new = count
+        
         while(new > 0):
                 y = new%10
                 x = x*10 + y
                 new = new/10
           
         x1 = x/10       
-        while(i>0):
+        
+        while(i > 0):
                 i=i/10
                 flag = flag + 1
                 
-        while(sav>0):
+        while(sav > 0):
                 if(sav == 1):
                         break
                 for j in range(2,sav-1):
@@ -33,12 +37,19 @@ for i in range(1,10000):
                         temp = temp + 1       
         
         
-        while(x1>0):
-                if(x1 == 1):
+        while(x1 > 0):
+		x2 = x1
+		x3 = 0
+		while(x2 > 0):
+		        y1 = x2 % 10
+		        x3 = x3*10 + y1
+		        x2 = x2/10
+		          
+                if(x3 == 1):
                         break
 
-                for j in range(2,x1-1):
-                        if(x1%j == 0):
+                for j in range(2,x3-1):
+                        if(x3%j == 0):
                                 z1 = z1+1
                                 temp2 = temp2 + 1  
                 
@@ -51,5 +62,7 @@ for i in range(1,10000):
            
         if(temp == flag and temp1 == flag-1):
                 print count
-                
+                sum = sum + count
+        
+print sum                
                 
